@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Daniel Voigt Godoy</title>
+  <meta name='description' content="Personal site of Daniel Voigt Godoy, author of the upcoming You're Not Your Job">
+
+  <link rel="canonical" href="https://www.dvgodoy.com/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daniel Voigt Godoy">
+  <meta name="twitter:description" content="Personal site of Daniel Voigt Godoy, author of the upcoming You're Not Your Job">
+  <meta name="twitter:image" content="https://www.dvgodoy.com/images/01.jpg">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="Daniel Voigt Godoy">
+  <meta property="og:description" content="Personal site of Daniel Voigt Godoy, author of the upcoming You're Not Your Job">
+  <meta property="og:image" content="https://www.dvgodoy.com/images/01.jpg">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Ionicons -->
+  <link href="https://unpkg.com/ionicons@4.5.0/dist/css/ionicons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/main.css">
+
+  <style>
+    :root {
+      /* dvgodoy.com / Vonge theme tokens */
+      --primary-color: #1495a7;
+      --secondary-color: #003687;
+      --white: #ffffff;
+      --dark: #110E38;
+      --gray: #d9d9d9;
+      --light-gray: #f5f5f5;
+      --blue-gray: #d5dce3;
+      --background-color: #f2f6ff;
+      --background-color-alt: #ffffff;
+      --text-color: var(--dark);
+      --border-color: var(--blue-gray);
+
+      /* App aliases */
+      --bg: var(--background-color);
+      --surface: var(--background-color-alt);
+      --surface-2: #eef4ff;
+      --ink: var(--text-color);
+      --muted: #5e6477;
+      --line: var(--border-color);
+      --accent: var(--primary-color);
+      --accent-dark: #0f7f8f;
+      --accent-soft: #e7f7fa;
+      --secondary-soft: #e8eefb;
+      --green: #207a52;
+      --green-soft: #e8f7ef;
+      --yellow: #8a6500;
+      --yellow-soft: #fff5cf;
+      --red: #9f2f3a;
+      --red-soft: #fff0f1;
+      --code: #110E38;
+      --shadow: 0 24px 70px rgba(17, 14, 56, 0.10);
+      --radius-lg: 16px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', Helvetica Neue, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--background-color);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      background: var(--ink);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 20;
+    }
+
+    .skip-link:focus { top: 16px; }
+
+    .site-shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header.topbar {
+      padding: 22px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--primary-color);
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(20,149,167,0.18);
+    }
+
+    .brand span:last-child {
+      display: grid;
+      line-height: 1.1;
+    }
+
+    .brand small {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--background-color-alt);
+      padding: 10px 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.93rem;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .button {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      width: 250px;
+      max-width: 100%;
+      line-height: 1.1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 24px rgba(17,14,56,0.08);
+    }
+
+    .button.primary,
+    .nav-link.primary {
+      color: white;
+      border-color: var(--secondary-color);
+      background: var(--secondary-color);
+    }
+
+    .button.accent {
+      color: white;
+      border-color: var(--primary-color);
+      background: var(--primary-color);
+    }
+
+    .button.ghost { background: transparent; }
+
+    .hero {
+      padding: 48px 0 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.75);
+      padding: 8px 12px;
+      color: var(--muted);
+      font-weight: 760;
+      font-size: 0.88rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      box-shadow: 0 0 0 5px rgba(20,149,167,0.15);
+    }
+
+    h1, h2, h3 {
+      line-height: 1.02;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      max-width: 960px;
+    }
+
+    h2 { font-size: clamp(2rem, 3.2vw, 3rem); }
+
+    h3 { font-size: clamp(1.25rem, 2vw, 1.65rem); }
+
+    .lede {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .profile-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      background: var(--background-color-alt);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(20,149,167,0.14), transparent 52%);
+      pointer-events: none;
+    }
+
+    .profile-card > * { position: relative; }
+
+    .profile-kicker {
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.73rem;
+    }
+
+    .profile-name {
+      margin-top: 10px;
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .profile-tagline {
+      margin-top: 8px;
+      font-size: 1.04rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .profile-proof {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+    }
+
+    .profile-proof p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stat-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat {
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      text-align: center;
+    }
+
+    .stat strong { display: block; font-size: 1.2rem; letter-spacing: -0.04em; }
+    .stat span { display: block; color: var(--muted); font-size: 0.78rem; font-weight: 700; }
+
+    main { padding: 20px 0; }
+
+    .section {
+      padding: 30px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.86);
+      box-shadow: 0 18px 50px rgba(17,14,56,0.07);
+      overflow: hidden;
+    }
+
+    .panel-inner { padding: 24px; }
+
+    .panel-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(242,246,255,0.72));
+    }
+
+    .panel-header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .task-form {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    label.field-label {
+      display: grid;
+      gap: 7px;
+      font-size: 0.86rem;
+      font-weight: 850;
+      color: var(--muted);
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+
+    textarea { min-height: 88px; resize: vertical; }
+
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(20,149,167,0.14);
+    }
+
+    .criterion {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+      gap: 18px;
+      margin: 0;
+      padding: 20px 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      min-inline-size: 0;
+    }
+
+    .criterion:first-child { border-top: 0; }
+
+    .criterion-info {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .criterion-title {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .criterion-question {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+      justify-self: stretch;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .option {
+      display: flex;
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option span {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      min-height: 108px;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      cursor: pointer;
+      background: white;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+    }
+
+    .option strong {
+      font-size: 0.8rem;
+      line-height: 1.1;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .option em {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 0.94rem;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .option input:focus-visible + span {
+      outline: 3px solid rgba(20,149,167,0.30);
+      outline-offset: 2px;
+    }
+
+    .option input:checked + span {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      box-shadow: inset 0 0 0 1px rgba(20,149,167,0.22);
+      transform: translateY(-1px);
+    }
+
+    .result-card {
+      position: sticky;
+      top: 18px;
+    }
+
+    .score-circle {
+      width: 154px;
+      height: 154px;
+      margin: 8px auto 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--accent) calc(var(--score-ratio) * 1turn), var(--surface-2) 0);
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .score-inner {
+      width: 118px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .score-inner strong {
+      font-size: 2.9rem;
+      line-height: 1;
+      letter-spacing: -0.08em;
+    }
+
+    .score-inner span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.78rem;
+    }
+
+    .verdict {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      margin: 14px 0px;
+    }
+
+    .verdict.good { background: var(--green-soft); border-color: rgba(38,122,75,0.24); }
+    .verdict.maybe { background: var(--yellow-soft); border-color: rgba(144,101,0,0.24); }
+    .verdict.no { background: var(--red-soft); border-color: rgba(159,47,47,0.20); }
+
+    .verdict strong { display: block; font-size: 1.08rem; letter-spacing: -0.02em; }
+    .verdict p { margin: 6px 0 0; color: var(--muted); font-size: 0.93rem; }
+
+    .advice-list {
+      padding-left: 18px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .result-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .result-actions .button {
+      width: 100%;
+      min-height: 46px;
+      padding-inline: 12px;
+    }
+
+    .toast {
+      min-height: 24px;
+      margin-top: 12px;
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .dense-grid {
+      display: grid;
+      /*grid-template-columns: repeat(2, minmax(0, 1fr));*/
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 18px;
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.78);
+      padding: 22px;
+      box-shadow: 0 14px 40px rgba(27,22,16,0.06);
+    }
+
+    .info-card p { color: var(--muted); }
+    .info-card p:last-child { margin-bottom: 0; }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      /* border-radius: var(--radius-md);*/
+      background: white;
+      margin-top: 12px;
+    }
+
+    .table-wrap table {
+      margin-bottom: 0px !important;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: var(--surface-2);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.79rem;
+      font-weight: 850;
+      white-space: nowrap;
+      background: var(--surface-2);
+    }
+
+    .pill.ft { color: var(--green); background: var(--green-soft); }
+    .pill.rag { color: #34558a; background: #edf4ff; }
+    .pill.prompt { color: var(--yellow); background: var(--yellow-soft); }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .quote {
+      border-left: 5px solid var(--primary-color);
+      padding: 14px 16px;
+      margin-top: 12px;
+      background: var(--accent-soft);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-weight: 760;
+      color: var(--dark);
+    }
+
+    pre {
+      margin: 14px 0 0;
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      background: var(--code);
+      color: #f8fafc;
+      padding: 16px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: white;
+      cursor: pointer;
+    }
+
+    .check-item input { margin-top: 4px; accent-color: var(--accent); }
+    .check-item span { color: var(--muted); }
+    .check-item strong { color: var(--ink); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pipe-step {
+      position: relative;
+      min-height: 118px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .pipe-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 40px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: white;
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .pipe-step strong { display: block; }
+    .pipe-step span { display: block; margin-top: 6px; color: var(--muted); font-size: 0.88rem; }
+
+    .cta-band {
+      margin-top: 30px;
+      border-radius: var(--radius-lg);
+      color: white;
+      background: linear-gradient(135deg, var(--dark), var(--secondary-color) 70%, var(--primary-color));
+      padding: clamp(24px, 4vw, 42px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(20,149,167,0.22);
+      right: -90px;
+      top: -110px;
+    }
+
+    .cta-band > * { position: relative; }
+    .cta-band p { color: rgba(255,255,255,0.76); max-width: 720px; }
+    .cta-band .button { background: white; color: var(--ink); border-color: white; }
+
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer .site-shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1040px) {
+      .hero, .app-grid, .dense-grid, .example-grid, .cta-band { grid-template-columns: 1fr; }
+      .result-card { position: static; }
+      .task-form { grid-template-columns: 1fr; }
+      .criterion { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr 1fr; }
+      .pipe-step:not(:last-child)::after { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .site-shell { width: min(var(--max), calc(100% - 20px)); }
+      header.topbar { padding: 12px 0; }
+      .nav { align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero { padding-top: 28px; }
+      .panel-inner { padding: 18px; }
+      .panel-header { padding: 18px; }
+      .options { grid-template-columns: 1fr; }
+      .option span { min-height: 78px; }
+      .pipeline { grid-template-columns: 1fr; }
+      .button { width: 100%; }
+      .result-actions { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(2.6rem, 15vw, 4rem); }
+    }
+
+    @media print {
+      body { background: white; }
+      .nav-links, .hero-actions, .result-actions, .cta-band, footer { display: none !important; }
+      .hero, .app-grid, .dense-grid, .example-grid { grid-template-columns: 1fr; }
+      .panel, .info-card, .profile-card { box-shadow: none; break-inside: avoid; }
+      .result-card { position: static; }
+      .section { padding: 14px 0; }
+    }
+  </style>
+</head>
+
+
+<body>
+<header class="c-header">
+  <div class="container">
+    <div class="row">
+      <div class="c-header__inner">
+
+        <div class="logo">
+          <a class="logo__link" href="/">
+          
+            <img class="logo__image" src="/images/logo.svg" alt="Daniel Voigt Godoy">
+          
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <div class="main-nav__box">
+
+            <div class="nav__icon-close">
+              <i class="ion ion-md-close"></i>
+            </div>
+
+            <div class="nav__title">Menu</div>
+
+              <ul class="nav__list list-reset">
+
+              
+                
+                <li class="nav__item">
+                  <a href="/" class="nav__link">Home</a>
+                </li>
+              
+                
+                <li class="nav__item">
+                  <a href="/books/" class="nav__link">Books & Courses</a>
+                </li>
+                
+                <li class="nav__item">
+                  <a href="/llms/" class="nav__link active-link">LLMs</a>
+                </li>              
+
+
+                <li class="nav__item">
+                  <a href="/blog/" class="nav__link">Blog</a>
+                </li>
+                
+              
+                
+                <li class="nav__item dropdown">
+                  <span class="nav__link dropdown-toggle">Pages <i class="ion ion-ios-arrow-down arrow-down"></i></span>
+                  <div class="dropdown-menu">
+                    
+                      <a href="/about/" class="nav__link">About</a>
+                    
+                      <a href="/workshops/" class="nav__link">Workshops</a>
+                    
+                      <a href="/awards/" class="nav__link">Awards</a>
+                    
+                      <a href="/publications/" class="nav__link">Publications</a>
+                    
+                  </div>
+                </li>
+
+                
+              
+
+            </ul>
+          </div>
+
+          <!--bookshop-live name(social-link.jekyll.html) params() context() -->
+          
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://twitter.com/dvgodoy" target="_blank" rel="noopener" aria-label="twitter icon"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/dvgodoy" target="_blank" rel="noopener" aria-label="github icon"><i class="ion ion-logo-github"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://youtube.com/DanielGodoy1976" target="_blank" rel="noopener" aria-label="youtube icon"><i class="ion ion-logo-youtube"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://linkedin.com/in/dvgodoy" target="_blank" rel="noopener" aria-label="linkedin icon"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+    
+  </ul>
+</div>
+
+          <!--bookshop-live end-->
+        </nav>
+
+        <div class="nav-button">
+          <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+  <main>
+    <section class="site-shell hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">Is Your LLM Task Worth Fine-Tuning?</h1>
+        <p class="lede">Score one workflow and decide whether to test open-weight fine-tuning, use prompting, use RAG, or narrow the task first.</p>
+        <div class="hero-actions">
+          <a class="button accent" href="#scorecard">Start the 3-minute diagnostic</a>
+          <button class="button ghost" type="button" data-print>Print / save as PDF</button>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Instructor profile">
+        <div class="profile-kicker">From the Maven Lightning Lesson by</div>
+        <div class="profile-name">Daniel Voigt Godoy</div>
+        <div class="profile-tagline"><i>Instructor @ Linux Foundation & Data Science Retreat</i></div>
+        <a href="https://maven.com/dvgodoy" target="_blank">
+          <img src="/images/maven_lesson.png" style="width: 100%; padding-top:10px;">
+        </a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="site-shell section" id="scorecard" aria-labelledby="scorecard-title">
+      <div class="section-head">
+        <div>
+          <h2 id="scorecard-title">Score your task</h2>
+        </div>
+        <p>Fine-tuning is not mainly about adding knowledge. It is about teaching <strong>repeated behavior</strong>. Use this rubric to decide whether your task is ready for a small test.</p>
+      </div>
+
+      <div class="app-grid">
+        <form class="panel" id="fitForm">
+          <div class="panel-header">
+            <h3>Your workflow</h3>
+            <p>Pick one concrete task. Broad goals like “build a chatbot” are too vague for this diagnostic.</p>
+          </div>
+          <div class="panel-inner">
+            <div class="task-form">
+              <label class="field-label" for="taskName">Task description
+                <input id="taskName" type="text" placeholder="e.g., classify support messages into billing categories" autocomplete="off" />
+              </label>
+              <label class="field-label" for="taskType">Task type
+                <select id="taskType">
+                  <option value="Classification">Classification</option>
+                  <option value="Extraction">Extraction</option>
+                  <option value="Rewriting">Rewriting</option>
+                  <option value="Routing">Routing</option>
+                  <option value="Structured output">Structured output</option>
+                  <option value="Domain Q&A">Domain Q&A</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="criteria"></div>
+          </div>
+        </form>
+
+        <aside class="panel result-card" aria-live="polite" aria-labelledby="result-title">
+          <div class="panel-header">
+            <h3 id="result-title">Your result</h3>
+            <p>Score range: 0–12</p>
+          </div>
+          <div class="panel-inner">
+            <div class="score-circle" id="scoreCircle" style="--score-ratio: 0;">
+              <div class="score-inner"><div><strong id="scoreValue">0</strong><span>out of 12</span></div></div>
+            </div>
+            <div class="verdict no" id="verdictBox">
+              <strong id="verdictTitle">Do not fine-tune yet</strong>
+              <p id="verdictText">Use prompting, RAG, or task redesign first. A weak score usually means the task is too broad, too knowledge-heavy, or too hard to evaluate.</p>
+            </div>
+            <ul class="advice-list" id="adviceList"></ul>
+            <div class="result-actions">
+              <button class="button primary" type="button" id="copyResult">Copy result</button>
+              <button class="button" type="button" id="resetScore">Reset</button>
+            </div>
+            <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="site-shell section" aria-labelledby="checklist-title" id="checklist" >
+      <div class="section-head">
+        <div><h2 id="checklist-title">Checklist</h2></div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="info-card">
+          <h3 id="checklist-title">Readiness</h3>
+          <p>Use this before building a dataset or buying GPU time.</p>
+          <div class="checklist" id="readinessChecklist">
+            <label class="check-item"><input type="checkbox" /><span><strong>Exact input:</strong> I can define what the model receives.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Exact output:</strong> I can define what the model should produce.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Judgment:</strong> A human can quickly judge whether the output is correct.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Examples:</strong> I have, or can create, around 200 good examples.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Value:</strong> A smaller model would be useful if it worked well enough.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Pain:</strong> Current API cost, latency, privacy, or dependency is painful.</span></label>
+            <label class="check-item"><input type="checkbox" /><span><strong>Alternatives:</strong> I have considered whether prompting or RAG is simpler.</span></label>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h3>Next move</h3>
+          <p id="checklistSummary">Check the items on the left to get a readiness note.</p>
+          <div class="verdict maybe" id="checklistVerdict">
+            <strong>Start with the scorecard</strong>
+            <p>The checklist helps confirm the decision once you have a score.</p>
+          </div>
+          <p><strong>Rule of thumb:</strong> fix unclear outputs before tuning, fix weak examples before hyperparameters, and use RAG when the task mainly needs fresh or private knowledge.</p>
+        </article>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h2>Want to run the experiment?</h2>
+          <p>This scorecard helps you decide whether fine-tuning is worth testing. The full workshop takes the next step: dataset, QLoRA training, before/after evaluation, and next-step diagnosis.</p>
+        </div>
+        <a class="button" href="https://maven.com/dvgodoy">Attend the workshop</a>
+      </div>
+    </section>
+  </main>
+
+    <!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <!--bookshop-live name(social-link.jekyll.html) params() context() -->
+          
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://twitter.com/dvgodoy" target="_blank" rel="noopener" aria-label="twitter icon"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/dvgodoy" target="_blank" rel="noopener" aria-label="github icon"><i class="ion ion-logo-github"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://youtube.com/DanielGodoy1976" target="_blank" rel="noopener" aria-label="youtube icon"><i class="ion ion-logo-youtube"></i></a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://linkedin.com/in/dvgodoy" target="_blank" rel="noopener" aria-label="linkedin icon"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+    
+  </ul>
+</div>
+
+          <!--bookshop-live end-->
+
+        <ul class="footer_nav list-reset">
+          
+          <li class="footer_nav__item">
+            <a href="/" class="footer_nav__link">Home</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/books/" class="footer_nav__link">Books & Courses</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/workshops/" class="footer_nav__link">Workshops</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/about/" class="footer_nav__link">About</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/blog/" class="footer_nav__link">Blog</a>
+          </li>
+          
+        </ul>
+
+        <div class="copyright"><p> 2026 &copy; <a href="/">Daniel Voigt Godoy</a>. Adapted from the Vonge template by <a href="https://cloudcannon.com/">CloudCannon</a>.</p></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+
+    <!--
+        load the live component for CloudCannon live previews.
+    -->
+    <script>
+(function(){
+  const bookshopLiveSetup = (CloudCannon) => {
+    CloudCannon.enableEvents();
+
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+    script.src = `/_cloudcannon/bookshop-live.js`;
+    script.onload = function() {
+      window.bookshopLive = new window.BookshopLive({
+        remoteGlobals: ['/_cloudcannon/bookshop-site-data.json']
+      });
+      const updateBookshopLive = async () => {
+        const frontMatter = await CloudCannon.value();
+        const options = window.bookshopLiveOptions || {};
+        await window.bookshopLive.update({page: frontMatter}, options);
+        CloudCannon?.refreshInterface?.();
+      }
+      document.addEventListener('cloudcannon:update', updateBookshopLive);
+      updateBookshopLive();
+    }
+    head.appendChild(script);
+  }
+
+  document.addEventListener('cloudcannon:load', function (e) {
+    bookshopLiveSetup(e.detail.CloudCannon);
+  });
+})();
+</script>
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/common.js"></script>
+
+  <script>
+    const criteria = [
+      {
+        key: 'repetition',
+        title: 'Repetition',
+        question: 'Does this task happen often enough to matter?',
+        options: ['Rare or ad hoc', 'Somewhat repeated', 'Highly repeated'],
+        lowAdvice: 'Repetition is low. Fine-tuning usually pays off only when the same kind of task appears again and again.'
+      },
+      {
+        key: 'clarity',
+        title: 'Output clarity',
+        question: 'Is the desired answer format clear?',
+        options: ['Subjective or fuzzy', 'Partly structured', 'Clearly defined'],
+        lowAdvice: 'Output clarity is low. Define the exact target output before collecting examples.'
+      },
+      {
+        key: 'evaluation',
+        title: 'Evaluation',
+        question: 'Can you tell if the model did the task correctly?',
+        options: ['Hard to judge', 'Needs human review', 'Easy to compare'],
+        lowAdvice: 'Evaluation is weak. Create a small eval set before training so you can compare base vs fine-tuned outputs.'
+      },
+      {
+        key: 'knowledge',
+        title: 'Knowledge dependence',
+        question: 'Is this mostly behavior/pattern, not new facts?',
+        options: ['Needs many facts', 'Some context needed', 'Mostly behavior'],
+        lowAdvice: 'Knowledge dependence is high. If the task needs fresh or private facts, RAG may be the better first move.'
+      },
+      {
+        key: 'value',
+        title: 'Cost or friction',
+        question: 'Is the current proprietary workflow painful enough?',
+        options: ['No real pain', 'Some pain', 'Clear cost/latency/privacy pain'],
+        lowAdvice: 'Cost or friction is low. If there is no real pain, the simplest prompt-based workflow may be enough.'
+      },
+      {
+        key: 'data',
+        title: 'Data availability',
+        question: 'Can you gather or create 200 good examples?',
+        options: ['No examples', 'Some examples', '200+ possible'],
+        lowAdvice: 'Data availability is low. Collect examples before spending time on training infrastructure.'
+      }
+    ];
+
+    const state = Object.fromEntries(criteria.map(item => [item.key, 0]));
+    const criteriaMount = document.getElementById('criteria');
+    const scoreValue = document.getElementById('scoreValue');
+    const scoreCircle = document.getElementById('scoreCircle');
+    const verdictBox = document.getElementById('verdictBox');
+    const verdictTitle = document.getElementById('verdictTitle');
+    const verdictText = document.getElementById('verdictText');
+    const adviceList = document.getElementById('adviceList');
+    const toast = document.getElementById('toast');
+
+    function renderCriteria() {
+      criteriaMount.innerHTML = criteria.map((item, index) => `
+        <div class="criterion" role="group" aria-labelledby="criterion-title-${item.key}">
+          <div class="criterion-info">
+            <div class="criterion-title" id="criterion-title-${item.key}">${index + 1}. ${item.title}</div>
+            <div class="criterion-question">${item.question}</div>
+          </div>
+          <div class="options" role="radiogroup" aria-label="${item.title}">
+            ${item.options.map((option, score) => `
+              <label class="option">
+                <input type="radio" name="${item.key}" value="${score}" ${score === 0 ? 'checked' : ''} />
+                <span><strong>Score ${score}</strong><em>${option}</em></span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getVerdict(score) {
+      if (score <= 5) {
+        return {
+          cls: 'no',
+          title: 'Do not fine-tune yet',
+          text: 'Use prompting, RAG, or task redesign first. A weak score usually means the task is too broad, too knowledge-heavy, or too hard to evaluate.'
+        };
+      }
+      if (score <= 8) {
+        return {
+          cls: 'maybe',
+          title: 'Clarify the task first',
+          text: 'This is the danger zone. Narrow the task, strengthen examples, and define evaluation before training.'
+        };
+      }
+      return {
+        cls: 'good',
+        title: 'Good candidate for a small test',
+        text: 'Run a controlled experiment: prepare examples, fine-tune a small open-weight model, and compare base vs fine-tuned outputs.'
+      };
+    }
+
+    function updateScore() {
+      const form = document.getElementById('fitForm');
+      const data = new FormData(form);
+      for (const item of criteria) {
+        state[item.key] = Number(data.get(item.key) || 0);
+      }
+      const score = Object.values(state).reduce((sum, value) => sum + value, 0);
+      const verdict = getVerdict(score);
+
+      scoreValue.textContent = score;
+      scoreCircle.style.setProperty('--score-ratio', score / 12);
+      verdictBox.className = `verdict ${verdict.cls}`;
+      verdictTitle.textContent = verdict.title;
+      verdictText.textContent = verdict.text;
+
+      const weak = criteria.filter(item => state[item.key] < 2).slice(0, 4);
+      adviceList.innerHTML = weak.length
+        ? weak.map(item => `<li>${item.lowAdvice}</li>`).join('')
+        : '<li>The task shape is strong. Focus next on dataset quality and evaluation.</li>';
+    }
+
+    function getResultText() {
+      const taskName = document.getElementById('taskName').value.trim() || 'Untitled LLM task';
+      const taskType = document.getElementById('taskType').value;
+      const score = Object.values(state).reduce((sum, value) => sum + value, 0);
+      const verdict = getVerdict(score);
+      const rows = criteria.map(item => `- ${item.title}: ${state[item.key]}/2`).join('\n');
+      return `Is Your LLM Task Worth Fine-Tuning?\n\nTask: ${taskName}\nType: ${taskType}\nScore: ${score}/12\nVerdict: ${verdict.title}\nNext move: ${verdict.text}\n\nBreakdown:\n${rows}\n\nFrom Daniel Voigt Godoy's Lightning Lesson: https://maven.com/dvgodoy`;
+    }
+
+    function resetScore() {
+      document.getElementById('fitForm').reset();
+      for (const item of criteria) state[item.key] = 0;
+      toast.textContent = '';
+      updateScore();
+    }
+
+    function updateChecklist() {
+      const checks = [...document.querySelectorAll('#readinessChecklist input[type="checkbox"]')];
+      const count = checks.filter(item => item.checked).length;
+      const summary = document.getElementById('checklistSummary');
+      const verdict = document.getElementById('checklistVerdict');
+      summary.textContent = `${count} of ${checks.length} readiness items checked.`;
+      if (count <= 3) {
+        verdict.className = 'verdict no';
+        verdict.innerHTML = '<strong>Not ready yet</strong><p>Clarify the task, output format, examples, or evaluation before training.</p>';
+      } else if (count <= 5) {
+        verdict.className = 'verdict maybe';
+        verdict.innerHTML = '<strong>Close, but tighten it</strong><p>Improve the missing pieces before spending time on fine-tuning.</p>';
+      } else {
+        verdict.className = 'verdict good';
+        verdict.innerHTML = '<strong>Ready for a controlled test</strong><p>Build a small dataset, train an adapter, and compare before/after outputs.</p>';
+      }
+    }
+
+    renderCriteria();
+    updateScore();
+    updateChecklist();
+
+    document.getElementById('fitForm').addEventListener('change', updateScore);
+    document.getElementById('resetScore').addEventListener('click', resetScore);
+    document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
+    document.getElementById('readinessChecklist').addEventListener('change', updateChecklist);
+
+    document.getElementById('copyResult').addEventListener('click', async () => {
+      const text = getResultText();
+      try {
+        await navigator.clipboard.writeText(text);
+        toast.textContent = 'Result copied to clipboard.';
+      } catch (error) {
+        const helper = document.createElement('textarea');
+        helper.value = text;
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand('copy');
+        helper.remove();
+        toast.textContent = 'Result copied to clipboard.';
+      }
+      setTimeout(() => { toast.textContent = ''; }, 3200);
+    });
+  </script>
+
+</body>
+</html>
